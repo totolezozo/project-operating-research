@@ -141,18 +141,58 @@ def ford_fulkerson_trace(C: List[List[int]], s: int, t: int
 
 
 def main():
-    # locate & read
-    script_dir  = os.path.dirname(os.path.abspath(__file__))
+    # get path to this script
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+    except NameError:
+        script_dir = os.getcwd()
+    # project root is parent of script dir
     project_dir = os.path.dirname(script_dir)
-    data_file   = os.path.join(project_dir, "test_files", "example1.txt")
+    # now test_files is in the project root
+    tf = os.path.join(project_dir, "test_files")
 
-    C = read_capacity_file(data_file)
+    while True:
+        sel = input("Select problem number (1–10) or q to quit: ").strip()
+        if sel.lower() == 'q':
+            break
+        if not sel.isdigit() or not (1 <= int(sel) <= 10):
+            print("Please enter a number 1–10.")
+            continue
+        num = int(sel)
+        fname = os.path.join(tf, f"example{num}.txt")
 
-    # run the trace (this prints only the capacity table, iterations, modifications…)
-    max_flow, final_R = ford_fulkerson_trace(C, s=0, t=len(C)-1)
+        alg = input("Choose algorithm ([max] Ford-Fulkerson / [min] Min-Cost): ").strip().lower()
+        if alg.startswith('m') and alg != 'max':
+            alg = 'min'
+        if alg not in ('max','min'):
+            print("Enter 'max' or 'min'.")
+            continue
 
-    # now call your new function to print exactly the final matrix
-    display_max_flow(C, final_R)
+        if not os.path.exists(fname):
+            print(f"Missing file: {fname}\n")
+            continue
+
+        print()
+        if alg == 'max':
+            print(f"=== Ford–Fulkerson on example{num}.txt ===\n")
+            C = read_capacity_file(fname)
+            max_flow, R = ford_fulkerson_trace(C, 0, len(C)-1)
+            display_max_flow(C, R)
+
+        else:  # min-cost
+            print(f"=== Min-cost flow on example{num}.txt ===\n")
+            n, C, D = read_min_cost_file(fname)
+            print("⋆ Capacity matrix:")
+            display_matrix(C)
+            print("\n⋆ Cost matrix:")
+            display_matrix(D)
+            print()
+            full = compute_max_flow(C, 0, n-1)
+            F = full // 2
+            print(f"Computed max flow = {full}, so target F = {F}\n")
+            flow, total_cost = min_cost_flow(n, C, D, 0, n-1, F)
+            print(f"Result: flow = {flow}, total cost = {total_cost}\n")
+
 
 
 if __name__ == "__main__":
