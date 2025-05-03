@@ -6,7 +6,7 @@ This repository contains multiple implementations and experiments for three core
 2. **Push–Relabel**  
 3. **Min-Cost Flow** (Successive Shortest Path + Potentials)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 
