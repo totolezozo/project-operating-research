@@ -1,0 +1,114 @@
+Select problem number (1–10) or q to quit: 10
+Automatically selecting Min-Cost for example10.txt
+
+=== Min-cost flow on example10.txt ===
+
+⋆ Capacity matrix:
+   0  150  150    0    0    0    0
+   0    0    0  120  100    0    0
+   0    0    0    0  100  120    0
+   0    0    0    0    0    0  150
+   0    0    0   50    0    0   80
+   0    0    0    0   50    0  150
+   0    0    0    0    0    0    0
+
+⋆ Cost matrix:
+   0    2    3    0    0    0    0
+   0    0    0    4    1    0    0
+   0    0    0    0    2    5    0
+   0    0    0    0    0    0    3
+   0    0    0    6    0    0    3
+   0    0    0    0    8    0    4
+   0    0    0    0    0    0    0
+
+Computed max flow = 300, so target F = 150
+
+⋆ Min-cost iteration 1: remaining flow = 150
+Bellman-Ford iteration 1:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      6
+p:      -      s      s      a      a      b      d
+
+Bellman-Ford iteration 2:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      6
+p:      -      s      s      a      a      b      d
+
+Bellman-Ford iteration 3:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      6
+p:      -      s      s      a      a      b      d
+
+Bellman-Ford iteration 4:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      6
+p:      -      s      s      a      a      b      d
+
+Bellman-Ford iteration 5:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      6
+p:      -      s      s      a      a      b      d
+
+Bellman-Ford iteration 6:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      6
+p:      -      s      s      a      a      b      d
+
+Augmenting along path sadf with flow 80
+
+Modifications to the residual graph :
+      s    a    b    c    d    e    f
+ s    0   70  150    0    0    0    0
+ a   80    0    0  120   20    0    0
+ b    0    0    0    0  100  120    0
+ c    0    0    0    0    0    0  150
+ d    0   80    0   50    0    0    0
+ e    0    0    0    0   50    0  150
+ f    0    0    0    0   80    0    0
+
+⋆ Min-cost iteration 2: remaining flow = 70
+Bellman-Ford iteration 1:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      9
+p:      -      s      s      a      a      b      c
+
+Bellman-Ford iteration 2:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      9
+p:      -      s      s      a      a      b      c
+
+Bellman-Ford iteration 3:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      9
+p:      -      s      s      a      a      b      c
+
+Bellman-Ford iteration 4:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      9
+p:      -      s      s      a      a      b      c
+
+Bellman-Ford iteration 5:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      9
+p:      -      s      s      a      a      b      c
+
+Bellman-Ford iteration 6:
+        s      a      b      c      d      e      f
+d:      0      2      3      6      3      8      9
+p:      -      s      s      a      a      b      c
+
+Augmenting along path sacf with flow 70
+
+Modifications to the residual graph :
+      s    a    b    c    d    e    f
+ s    0    0  150    0    0    0    0
+ a  150    0    0   50   20    0    0
+ b    0    0    0    0  100  120    0
+ c    0   70    0    0    0    0   80
+ d    0   80    0   50    0    0    0
+ e    0    0    0    0   50    0  150
+ f    0    0    0   70   80    0    0
+
+Result: flow = 150, total cost = 1110
+
+Select problem number (1–10) or q to quit:

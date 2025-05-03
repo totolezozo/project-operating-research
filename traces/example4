@@ -1,0 +1,161 @@
+PS C:\Users\tchom\OneDrive\Documents\project graph theory> & C:/Users/tchom/AppData/Local/Programs/Python/Python313/python.exe "c:/Users/tchom/OneDrive/Documents/project graph theory/script/main.py"
+Select problem number (1–10) or q to quit: 4
+Choose algorithm ([max] Ford-Fulkerson / [push] Push-Relabel): max
+
+=== Ford–Fulkerson on example4.txt ===
+
+⋆ Capacity table display :
+8
+   0    5    0    9    0    0    0    0
+   0    0    7    0    0    0    0    0
+   0    0    0    0    4    3    0    0
+   0    0    4    0    0    6    5    0
+   0    0    0    0    0    6    0    6
+   0    0    0    0    0    0    0    5
+   0    0    0    0    0    0    0    7
+   0    0    0    0    0    0    0    0
+
+The initial residual graph is the starting graph.
+
+⋆ Iteration 1 :
+Breadth-first search :
+ac ; Π(a) = s; Π(c) = s
+bef ; Π(b) = a; Π(e) = c; Π(f) = c
+dg ; Π(d) = b; Π(g) = e
+Detection of an improving chain : sceg with a flow 5.
+
+Modifications to the residual graph :
+      s    a    b    c    d    e    f    g
+ s    0    5    0    4    0    0    0    0
+ a    0    0    7    0    0    0    0    0
+ b    0    0    0    0    4    3    0    0
+ c    5    0    4    0    0    1    5    0
+ d    0    0    0    0    0    6    0    6
+ e    0    0    0    5    0    0    0    0
+ f    0    0    0    0    0    0    0    7
+ g    0    0    0    0    0    5    0    0
+
+⋆ Iteration 2 :
+Breadth-first search :
+ac ; Π(a) = s; Π(c) = s
+bef ; Π(b) = a; Π(e) = c; Π(f) = c
+dg ; Π(d) = b; Π(g) = f
+Detection of an improving chain : scfg with a flow 4.
+
+Modifications to the residual graph :
+      s    a    b    c    d    e    f    g
+ s    0    5    0    0    0    0    0    0
+ a    0    0    7    0    0    0    0    0
+ b    0    0    0    0    4    3    0    0
+ c    9    0    4    0    0    1    1    0
+ d    0    0    0    0    0    6    0    6
+ e    0    0    0    5    0    0    0    0
+ f    0    0    0    4    0    0    0    3
+ g    0    0    0    0    0    5    4    0
+
+⋆ Iteration 3 :
+Breadth-first search :
+a ; Π(a) = s
+b ; Π(b) = a
+de ; Π(d) = b; Π(e) = b
+gc ; Π(g) = d; Π(c) = e
+Detection of an improving chain : sabdg with a flow 4.
+
+Modifications to the residual graph :
+      s    a    b    c    d    e    f    g
+ s    0    1    0    0    0    0    0    0
+ a    4    0    3    0    0    0    0    0
+ b    0    4    0    0    0    3    0    0
+ c    9    0    4    0    0    1    1    0
+ d    0    0    4    0    0    6    0    2
+ e    0    0    0    5    0    0    0    0
+ f    0    0    0    4    0    0    0    3
+ g    0    0    0    0    4    5    4    0
+
+⋆ Iteration 4 :
+Breadth-first search :
+a ; Π(a) = s
+b ; Π(b) = a
+e ; Π(e) = b
+c ; Π(c) = e
+f ; Π(f) = c
+g ; Π(g) = f
+Detection of an improving chain : sabecfg with a flow 1.
+
+Modifications to the residual graph :
+      s    a    b    c    d    e    f    g
+ s    0    0    0    0    0    0    0    0
+ a    5    0    2    0    0    0    0    0
+ b    0    5    0    0    0    2    0    0
+ c    9    0    4    0    0    2    0    0
+ d    0    0    4    0    0    6    0    2
+ e    0    0    1    4    0    0    0    0
+ f    0    0    0    5    0    0    0    2
+ g    0    0    0    0    4    5    5    0
+
+⋆ Iteration 5 :
+Breadth-first search :
+No augmenting path found, terminating.
+
+⋆ Max flow display :
+      s    a    b    c    d    e    f    g
+ s    0  5/5    0  9/9    0    0    0    0
+ a    0    0  5/7    0    0    0    0    0
+ b    0    0    0    0  4/4  1/3    0    0
+ c    0    0  0/4    0    0  4/6  5/5    0
+ d    0    0    0    0    0  0/6    0  4/6
+ e    0    0    0    0    0    0    0  5/5
+ f    0    0    0    0    0    0    0  5/7
+ g    0    0    0    0    0    0    0    0
+
+Value of the max flow max = 14
+
+Select problem number (1–10) or q to quit: 4
+Choose algorithm ([max] Ford-Fulkerson / [push] Push-Relabel): push
+
+=== Push–Relabel on example4.txt ===
+
+PUSH 5 from s to a (initial preflow)
+PUSH 9 from s to c (initial preflow)
+Iteration 1: RELABEL a from 0 to 1
+Iteration 2: PUSH 5 from a to b; excess[a]=0; excess[b]=5
+Iteration 3: RELABEL c from 0 to 1
+Iteration 4: PUSH 4 from c to b; excess[c]=5; excess[b]=9
+Iteration 5: PUSH 5 from c to e; excess[c]=0; excess[e]=5
+Iteration 6: RELABEL b from 0 to 1
+Iteration 7: PUSH 4 from b to d; excess[b]=5; excess[d]=4
+Iteration 8: PUSH 3 from b to e; excess[b]=2; excess[e]=8
+Iteration 9: RELABEL b from 1 to 2
+Iteration 10: PUSH 2 from b to a; excess[b]=0; excess[a]=2
+Iteration 11: RELABEL e from 0 to 1
+Iteration 12: PUSH 5 from e to g; excess[e]=3; excess[g]=5
+Iteration 13: RELABEL e from 1 to 2
+Iteration 14: PUSH 3 from e to c; excess[e]=0; excess[c]=3
+Iteration 15: RELABEL d from 0 to 1
+Iteration 16: PUSH 4 from d to g; excess[d]=0; excess[g]=9
+Iteration 17: RELABEL a from 1 to 3
+Iteration 18: PUSH 2 from a to b; excess[a]=0; excess[b]=2
+Iteration 19: PUSH 3 from c to f; excess[c]=0; excess[f]=3
+Iteration 20: PUSH 2 from b to c; excess[b]=0; excess[c]=2
+Iteration 21: RELABEL f from 0 to 1
+Iteration 22: PUSH 3 from f to g; excess[f]=0; excess[g]=12
+Iteration 23: RELABEL c from 1 to 2
+Iteration 24: PUSH 2 from c to f; excess[c]=0; excess[f]=2
+Iteration 25: PUSH 2 from f to g; excess[f]=0; excess[g]=14
+
+Value of the max flow max = 14
+
+⋆ Max flow display :
+      s    a    b    c    d    e    f    g
+ s    0  5/5    0  9/9    0    0    0    0
+ a    0    0  5/7    0    0    0    0    0
+ b    0    0    0    0  4/4  3/3    0    0
+ c    0    0  2/4    0    0  2/6  5/5    0
+ d    0    0    0    0    0  0/6    0  4/6
+ e    0    0    0    0    0    0    0  5/5
+ f    0    0    0    0    0    0    0  5/7
+ g    0    0    0    0    0    0    0    0
+
+Value of the max flow max = 14
+
+Select problem number (1–10) or q to quit:

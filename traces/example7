@@ -1,0 +1,137 @@
+Select problem number (1–10) or q to quit: 7
+Automatically selecting Min-Cost for example7.txt
+
+=== Min-cost flow on example7.txt ===
+
+⋆ Capacity matrix:
+   0    5    0    8    5    0
+   0    0    1    0    0    7
+   0    0    0    0    0    1
+   0    3    0    0    0    9
+   0    0    0    4    0    1
+   0    0    0    0    0    0
+
+⋆ Cost matrix:
+   0    4    0    2    4    0
+   0    0    2    0    0    3
+   0    0    0    0    0    3
+   0    4    0    0    0    6
+   0    0    0    2    0    2
+   0    0    0    0    0    0
+
+Computed max flow = 18, so target F = 9
+
+⋆ Min-cost iteration 1: remaining flow = 9
+Bellman-Ford iteration 1:
+        s      a      b      c      d      e
+d:      0      4      6      2      4      6
+p:      -      s      a      s      s      d
+
+Bellman-Ford iteration 2:
+        s      a      b      c      d      e
+d:      0      4      6      2      4      6
+p:      -      s      a      s      s      d
+
+Bellman-Ford iteration 3:
+        s      a      b      c      d      e
+d:      0      4      6      2      4      6
+p:      -      s      a      s      s      d
+
+Bellman-Ford iteration 4:
+        s      a      b      c      d      e
+d:      0      4      6      2      4      6
+p:      -      s      a      s      s      d
+
+Bellman-Ford iteration 5:
+        s      a      b      c      d      e
+d:      0      4      6      2      4      6
+p:      -      s      a      s      s      d
+
+Augmenting along path sde with flow 1
+
+Modifications to the residual graph :
+      s    a    b    c    d    e
+ s    0    5    0    8    4    0
+ a    0    0    1    0    0    7
+ b    0    0    0    0    0    1
+ c    0    3    0    0    0    9
+ d    1    0    0    4    0    0
+ e    0    0    0    0    1    0
+
+⋆ Min-cost iteration 2: remaining flow = 8
+Bellman-Ford iteration 1:
+        s      a      b      c      d      e
+d:      0      4      6      2      4      7
+p:      -      s      a      s      s      a
+
+Bellman-Ford iteration 2:
+        s      a      b      c      d      e
+d:      0      4      6      2      4      7
+p:      -      s      a      s      s      a
+
+Bellman-Ford iteration 3:
+        s      a      b      c      d      e
+d:      0      4      6      2      4      7
+p:      -      s      a      s      s      a
+
+Bellman-Ford iteration 4:
+        s      a      b      c      d      e
+d:      0      4      6      2      4      7
+p:      -      s      a      s      s      a
+
+Bellman-Ford iteration 5:
+        s      a      b      c      d      e
+d:      0      4      6      2      4      7
+p:      -      s      a      s      s      a
+
+Augmenting along path sae with flow 5
+
+Modifications to the residual graph :
+      s    a    b    c    d    e
+ s    0    0    0    8    4    0
+ a    5    0    1    0    0    2
+ b    0    0    0    0    0    1
+ c    0    3    0    0    0    9
+ d    1    0    0    4    0    0
+ e    0    5    0    0    1    0
+
+⋆ Min-cost iteration 3: remaining flow = 3
+Bellman-Ford iteration 1:
+        s      a      b      c      d      e
+d:      0      5    INF      2      4      8
+p:      -      e      -      s      s      c
+
+Bellman-Ford iteration 2:
+        s      a      b      c      d      e
+d:      0      5      7      2      4      8
+p:      -      e      a      s      s      c
+
+Bellman-Ford iteration 3:
+        s      a      b      c      d      e
+d:      0      5      7      2      4      8
+p:      -      e      a      s      s      c
+
+Bellman-Ford iteration 4:
+        s      a      b      c      d      e
+d:      0      5      7      2      4      8
+p:      -      e      a      s      s      c
+
+Bellman-Ford iteration 5:
+        s      a      b      c      d      e
+d:      0      5      7      2      4      8
+p:      -      e      a      s      s      c
+
+Augmenting along path sce with flow 3
+
+Modifications to the residual graph :
+      s    a    b    c    d    e
+ s    0    0    0    5    4    0
+ a    5    0    1    0    0    2
+ b    0    0    0    0    0    1
+ c    3    3    0    0    0    6
+ d    1    0    0    4    0    0
+ e    0    5    0    3    1    0
+
+Result: flow = 9, total cost = 65
+
+Select problem number (1–10) or q to quit:

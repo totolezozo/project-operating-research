@@ -1,0 +1,63 @@
+Select problem number (1–10) or q to quit: 6
+Automatically selecting Min-Cost for example6.txt
+
+=== Min-cost flow on example6.txt ===
+
+⋆ Capacity matrix:
+   0    4    2    0    0    0
+   0    0    0    4    0    1
+   0    0    0    4    5    0
+   0    0    0    0    2    2
+   0    0    0    0    0    2
+   0    0    0    0    0    0
+
+⋆ Cost matrix:
+   0    3    1    0    0    0
+   0    0    0    2    0    4
+   0    0    0    1    2    0
+   0    0    0    0    3    1
+   0    0    0    0    0    6
+   0    0    0    0    0    0
+
+Computed max flow = 5, so target F = 2
+
+⋆ Min-cost iteration 1: remaining flow = 2
+Bellman-Ford iteration 1:
+        s      a      b      c      d      e
+d:      0      3      1      2      3      3
+p:      -      s      s      b      b      c
+
+Bellman-Ford iteration 2:
+        s      a      b      c      d      e
+d:      0      3      1      2      3      3
+p:      -      s      s      b      b      c
+
+Bellman-Ford iteration 3:
+        s      a      b      c      d      e
+d:      0      3      1      2      3      3
+p:      -      s      s      b      b      c
+
+Bellman-Ford iteration 4:
+        s      a      b      c      d      e
+d:      0      3      1      2      3      3
+p:      -      s      s      b      b      c
+
+Bellman-Ford iteration 5:
+        s      a      b      c      d      e
+d:      0      3      1      2      3      3
+p:      -      s      s      b      b      c
+
+Augmenting along path sbce with flow 2
+
+Modifications to the residual graph :
+      s    a    b    c    d    e
+ s    0    4    0    0    0    0
+ a    0    0    0    4    0    1
+ b    2    0    0    2    5    0
+ c    0    0    2    0    2    0
+ d    0    0    0    0    0    2
+ e    0    0    0    2    0    0
+
+Result: flow = 2, total cost = 6
+
+Select problem number (1–10) or q to quit:
